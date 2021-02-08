@@ -457,12 +457,11 @@ define({ "api": [
             "type": "string",
             "allowedValues": [
               "\"chromium\"",
-              "\"firefox\"",
-              "\"webkit\""
+              "\"firefox\""
             ],
             "optional": true,
             "field": "browser",
-            "defaultValue": "webkit",
+            "defaultValue": "chromium",
             "description": "<p>What browser engine to use for screenshotting</p>"
           },
           {
