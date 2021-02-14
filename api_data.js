@@ -856,10 +856,38 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "number",
+            "type": "string|null",
+            "optional": false,
+            "field": "discord_id",
+            "description": "<p>The users linked Discord account ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number|null",
             "optional": false,
             "field": "quota",
             "description": "<p>The users processing time quota (in ms)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "monthly_credits",
+            "description": "<p>The users remaining monthly credits</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "credits",
+            "description": "<p>The users remaining purchased credits</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number|null",
+            "optional": false,
+            "field": "credit_alert",
+            "description": "<p>The users active credit alert</p>"
           }
         ]
       }
