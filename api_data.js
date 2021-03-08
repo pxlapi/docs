@@ -483,7 +483,7 @@ define({ "api": [
             "optional": true,
             "field": "timeout",
             "defaultValue": "30000",
-            "description": "<p>The timeout to use (in ms)</p>"
+            "description": "<p>The max time to wait until the site has loaded (in ms)</p>"
           }
         ]
       }
