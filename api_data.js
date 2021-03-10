@@ -366,6 +366,14 @@ define({ "api": [
             "field": "safeSearch",
             "defaultValue": "strict",
             "description": "<p>What safe search setting to use</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "meta",
+            "defaultValue": "false",
+            "description": "<p>Whether to return meta data (page title and URL)</p>"
           }
         ]
       }
@@ -375,10 +383,31 @@ define({ "api": [
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "string[]",
+            "type": "string[]|object[]",
             "optional": false,
             "field": "body",
-            "description": "<p>An array of image URLs</p>"
+            "description": "<p>An array of image URLs (when <code>meta = false</code>) or image objects (when <code>meta = true</code>)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "body.url",
+            "description": "<p>The images URL</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "body.title",
+            "description": "<p>The images page title</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "body.location",
+            "description": "<p>The images location (page URL)</p>"
           }
         ]
       }
