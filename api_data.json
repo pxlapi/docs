@@ -88,6 +88,125 @@
   },
   {
     "type": "post",
+    "url": "/glitch",
+    "title": "Glitch",
+    "group": "Image_Manipulation",
+    "description": "<p>Applies a glitch effect to the given image</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "iterations",
+            "defaultValue": "10",
+            "description": "<p>How many byte chunks to modify</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "amount",
+            "defaultValue": "5",
+            "description": "<p>Byte chunk length</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "object",
+            "optional": true,
+            "field": "gif",
+            "description": "<p>Additional information for glitching static images into a GIF</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..30"
+            ],
+            "optional": true,
+            "field": "frameCount",
+            "defaultValue": "10",
+            "description": "<p>How many frames to generate</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "10..1000"
+            ],
+            "optional": true,
+            "field": "delay",
+            "defaultValue": "100",
+            "description": "<p>How long to display each frame for (in ms)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Glitch.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostGlitch",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "buffer",
+            "optional": false,
+            "field": "body",
+            "description": "<p>The image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/lego",
     "title": "Lego",
     "group": "Image_Manipulation",
