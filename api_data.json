@@ -119,7 +119,7 @@
           },
           {
             "group": "Request Parameters",
-            "type": "object",
+            "type": "boolean|object",
             "optional": true,
             "field": "gif",
             "description": "<p>Additional information for glitching static images into a GIF</p>"
@@ -131,7 +131,7 @@
               "1..30"
             ],
             "optional": true,
-            "field": "frameCount",
+            "field": "gif.count",
             "defaultValue": "10",
             "description": "<p>How many frames to generate</p>"
           },
@@ -142,7 +142,7 @@
               "10..1000"
             ],
             "optional": true,
-            "field": "delay",
+            "field": "gif.delay",
             "defaultValue": "100",
             "description": "<p>How long to display each frame for (in ms)</p>"
           },
