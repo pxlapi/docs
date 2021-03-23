@@ -531,10 +531,6 @@ define({ "api": [
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "controllers/util/ImageSearch.js",
-    "groupTitle": "Utility",
-    "name": "PostImage_search",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -542,7 +538,7 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>No results were found</p>"
           },
           {
             "group": "Error 4xx",
@@ -552,7 +548,11 @@ define({ "api": [
           }
         ]
       }
-    }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/util/ImageSearch.js",
+    "groupTitle": "Utility",
+    "name": "PostImage_search"
   },
   {
     "type": "post",
@@ -775,7 +775,7 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "news.image",
             "description": "<p>The news entry's image</p>"
           },
@@ -803,10 +803,6 @@ define({ "api": [
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "controllers/util/WebSearch.js",
-    "groupTitle": "Utility",
-    "name": "PostWeb_search",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -814,7 +810,7 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>No results were found</p>"
           },
           {
             "group": "Error 4xx",
@@ -824,7 +820,11 @@ define({ "api": [
           }
         ]
       }
-    }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/util/WebSearch.js",
+    "groupTitle": "Utility",
+    "name": "PostWeb_search"
   },
   {
     "type": "get",
