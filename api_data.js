@@ -207,6 +207,85 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/jpeg",
+    "title": "Low-quality JPEG effect",
+    "group": "Image_Manipulation",
+    "description": "<p>Applies a low-quality JPEG effect to the given image</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "defaultValue": "1",
+            "description": "<p>What JPEG quality to encode the image as</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/JPEG.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostJpeg",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "buffer",
+            "optional": false,
+            "field": "body",
+            "description": "<p>The image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/lego",
     "title": "Lego",
     "group": "Image_Manipulation",
