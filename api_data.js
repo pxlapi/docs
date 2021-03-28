@@ -208,7 +208,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/jpeg",
-    "title": "Low-quality JPEG effect",
+    "title": "JPEG",
     "group": "Image_Manipulation",
     "description": "<p>Applies a low-quality JPEG effect to the given image</p>",
     "parameter": {
