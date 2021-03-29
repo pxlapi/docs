@@ -41,19 +41,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/EmojiMosaic.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostEmojimosaic",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -84,11 +71,24 @@ define({ "api": [
           }
         ]
       }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
     }
   },
   {
     "type": "post",
-    "url": "/flag",
+    "url": "/flag/:flag",
     "title": "Flag",
     "group": "Image_Manipulation",
     "description": "<p>Overlays the given flag onto the given image</p>",
@@ -167,20 +167,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "controllers/image-manipulation/Flag.js",
     "groupTitle": "Image_Manipulation",
-    "name": "PostFlag",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
+    "name": "PostFlagFlag",
     "success": {
       "fields": {
         "Success 200": [
@@ -208,6 +195,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -287,19 +287,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/Glitch.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostGlitch",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -327,6 +314,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -366,19 +366,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/JPEG.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostJpeg",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -406,6 +393,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -453,19 +453,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/Lego.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostLego",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -493,6 +480,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -546,19 +546,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/Snapchat.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostSnapchatFilter",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -586,6 +573,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -615,19 +615,6 @@ define({ "api": [
     "filename": "controllers/image-manipulation/Thonkify.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostThonkify",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -655,6 +642,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -758,7 +758,20 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "controllers/util/ImageSearch.js",
     "groupTitle": "Utility",
-    "name": "PostImage_search"
+    "name": "PostImage_search",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "post",
@@ -781,7 +794,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "device",
-            "description": "<p>The device to emulate. See <a href=\"https://github.com/Microsoft/playwright/blob/master/src/server/deviceDescriptors.ts#L20\">list of available devices</a></p>"
+            "description": "<p>The device to emulate. See <a href=\"https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js#L21-L857\">list of available devices</a></p>"
           },
           {
             "group": "Request Parameters",
@@ -827,7 +840,7 @@ define({ "api": [
             ],
             "optional": true,
             "field": "theme",
-            "defaultValue": "undefined",
+            "defaultValue": "dark",
             "description": "<p>What theme to use</p>"
           },
           {
@@ -846,19 +859,6 @@ define({ "api": [
     "filename": "controllers/util/Screenshot.js",
     "groupTitle": "Utility",
     "name": "PostScreenshot",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -886,6 +886,19 @@ define({ "api": [
             "optional": false,
             "field": "401",
             "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
           }
         ]
       }
@@ -1030,7 +1043,20 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "controllers/util/WebSearch.js",
     "groupTitle": "Utility",
-    "name": "PostWeb_search"
+    "name": "PostWeb_search",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "get",
