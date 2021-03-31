@@ -12,12 +12,11 @@
             "group": "Request Parameters",
             "type": "number",
             "allowedValues": [
-              "6..48"
+              "6.."
             ],
             "optional": true,
             "field": "groupSize",
-            "defaultValue": "12",
-            "description": "<p>How big of a pixel square to group into one emoji</p>"
+            "description": "<p>How big of a pixel square to group into one emoji. Defaults to a 32x32 emoji result</p>"
           },
           {
             "group": "Request Parameters",
@@ -424,12 +423,11 @@
             "group": "Request Parameters",
             "type": "number",
             "allowedValues": [
-              "6..16"
+              "6.."
             ],
             "optional": true,
             "field": "groupSize",
-            "defaultValue": "8",
-            "description": "<p>How big of a pixel square to group into one brick</p>"
+            "description": "<p>How big of a pixel square to group into one brick. Defaults to a 32x32 brick result</p>"
           },
           {
             "group": "Request Parameters",
