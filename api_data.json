@@ -45,10 +45,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -60,7 +60,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -172,10 +172,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -187,7 +187,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -291,10 +291,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -306,7 +306,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -370,10 +370,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -385,7 +385,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -456,10 +456,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -471,7 +471,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -549,10 +549,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -564,7 +564,78 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/sonic",
+    "title": "Sonic",
+    "group": "Image_Manipulation",
+    "description": "<p>Renders the given text on a sonic quote template</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "1..1000"
+            ],
+            "optional": false,
+            "field": "text",
+            "description": "<p>What text to print into the speech bubble</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Sonic.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostSonic",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -618,10 +689,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -633,7 +704,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
@@ -862,10 +933,10 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "buffer",
+            "type": "binary",
             "optional": false,
-            "field": "body",
-            "description": "<p>The image data</p>"
+            "field": "null",
+            "description": "<p>The processed image data</p>"
           }
         ]
       }
@@ -877,7 +948,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "400",
-            "description": "<p>The supplied data was invalid</p>"
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
           },
           {
             "group": "Error 4xx",
