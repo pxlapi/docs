@@ -79,7 +79,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -206,7 +206,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -325,7 +325,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -404,7 +404,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -490,7 +490,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -583,7 +583,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -654,7 +654,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -723,7 +723,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -836,7 +836,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -863,7 +863,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "device",
-            "description": "<p>The device to emulate. See <a href=\"https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js#L21-L857\">list of available devices</a></p>"
+            "description": "<p>The device to emulate. See <a href=\"https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js#L21-L857\">list of available devices</a>. Defaults to a non-specific device with a viewport of 1920x1080 pixels.</p>"
           },
           {
             "group": "Request Parameters",
@@ -967,7 +967,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
@@ -1079,7 +1079,7 @@ define({ "api": [
             "type": "string[]",
             "optional": false,
             "field": "images",
-            "description": "<p>An array of related image URLs. If you want to search for images only, use <a href=\"/#api-Utility-PostImage_search\">Image Search</a> instead.</p>"
+            "description": "<p>An array of related image URLs. If you want to search for images only, use <a href=\"#PostImage_search\">Image Search</a> instead.</p>"
           },
           {
             "group": "Success 200",
@@ -1121,7 +1121,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
           }
         ]
       }
