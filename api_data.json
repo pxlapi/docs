@@ -87,6 +87,111 @@
   },
   {
     "type": "post",
+    "url": "/eyes/:type",
+    "title": "Eyes",
+    "group": "Image_Manipulation",
+    "description": "<p>Applies different types of eyes to the faces in the image. Accepts one image with at least one human face</p>",
+    "parameter": {
+      "fields": {
+        "Path Arguments": [
+          {
+            "group": "Path Arguments",
+            "type": "string",
+            "allowedValues": [
+              "\"big\"",
+              "\"black\"",
+              "\"bloodshot\"",
+              "\"blue\"",
+              "\"default\"",
+              "\"googly\"",
+              "\"green\"",
+              "\"horror\"",
+              "\"illuminati\"",
+              "\"money\"",
+              "\"pink\"",
+              "\"red\"",
+              "\"small\"",
+              "\"spinner\"",
+              "\"spongebob\"",
+              "\"white\"",
+              "\"yellow\"",
+              "\"random\""
+            ],
+            "optional": true,
+            "field": "type",
+            "defaultValue": "default",
+            "description": "<p>The eye type to apply</p>"
+          }
+        ],
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": true,
+            "field": "types",
+            "description": "<p>What types to limit &quot;random&quot; to (defaults to all available filters)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Eyes.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostEyesType",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/flag/:flag",
     "title": "Flag",
     "group": "Image_Manipulation",
