@@ -968,7 +968,7 @@
             "type": "string",
             "optional": true,
             "field": "device",
-            "description": "<p>The device to emulate. See <a href=\"https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js#L21-L857\">list of available devices</a>. Defaults to a non-specific device with a viewport of 1920x1080 pixels.</p>"
+            "description": "<p>The device to emulate. See <a href=\"https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js#L21-L857\">list of available devices</a>. Defaults to a non-specific browser with a viewport of 1920x1080 pixels.</p>"
           },
           {
             "group": "Request Parameters",
