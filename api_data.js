@@ -1020,11 +1020,19 @@ define({ "api": [
           {
             "group": "Request Parameters",
             "type": "number",
-            "size": "1000..60000",
+            "size": "1000..30000",
             "optional": true,
             "field": "timeout",
-            "defaultValue": "30000",
+            "defaultValue": "20000",
             "description": "<p>The max time to wait until the site has loaded (in ms)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "fullPage",
+            "defaultValue": "false",
+            "description": "<p>Whether to capture the entire page</p>"
           }
         ]
       }
