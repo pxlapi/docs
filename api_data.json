@@ -438,6 +438,61 @@
   },
   {
     "type": "post",
+    "url": "/imagescript",
+    "title": "ImageScript",
+    "group": "Image_Manipulation",
+    "description": "<p>BETA<br> Runs <a href=\"https://github.com/matmen/ImageScript\">ImageScript</a> code as a service.<br><br> Exposes a polyfill <code>fetch(url, init)</code> function which supports the following <code>init</code> parameters: <code>method</code>, <code>headers</code>, <code>body</code>.<br> Returns a polyfill Response object with the following properties: <code>headers</code>, <code>redirected</code>, <code>status</code>, <code>statusText</code>, <code>ok</code>, <code>url</code>, <code>arrayBuffer()</code>, <code>text()</code>, <code>json()</code>.<br> 5 fetches per script evaluation allowed.</p>",
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/ImageScript.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostImagescript",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/jpeg",
     "title": "JPEG",
     "group": "Image_Manipulation",
