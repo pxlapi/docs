@@ -1,5 +1,16 @@
 define({ "api": [
   {
+    "type": "get",
+    "url": "/imagescript/versions",
+    "title": "ImageScript versions",
+    "group": "Image_Manipulation",
+    "description": "<p>Lists the available <a href=\"https://github.com/matmen/ImageScript/releases\">ImageScript versions</a> pxlAPI supports</p>",
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/ImageScript.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "GetImagescriptVersions"
+  },
+  {
     "type": "post",
     "url": "/emojimosaic",
     "title": "Emoji Mosaic",
@@ -438,12 +449,21 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/imagescript",
+    "url": "/imagescript/:version",
     "title": "ImageScript",
     "group": "Image_Manipulation",
-    "description": "<p>BETA<br> Runs <a href=\"https://github.com/matmen/ImageScript\">ImageScript</a> code as a service.<br><br> Exposes a polyfill <code>fetch(url, init)</code> function which supports the following <code>init</code> parameters: <code>method</code>, <code>headers</code>, <code>body</code>.<br> Returns a polyfill Response object with the following properties: <code>headers</code>, <code>redirected</code>, <code>status</code>, <code>statusText</code>, <code>ok</code>, <code>url</code>, <code>arrayBuffer()</code>, <code>text()</code>, <code>json()</code>.<br> 5 fetches per script evaluation allowed.</p>",
+    "description": "<p>BETA<br> Runs <a href=\"https://github.com/matmen/ImageScript\">ImageScript</a> code as a service.<br><br> Exposes a polyfill <code>fetch(url, init)</code> function which supports the following <code>init</code> parameters: <code>method</code>, <code>headers</code>, <code>body</code>.<br> Returns a polyfill Response object with the following properties: <code>headers</code>, <code>redirected</code>, <code>status</code>, <code>statusText</code>, <code>ok</code>, <code>url</code>, <code>arrayBuffer()</code>, <code>text()</code>, <code>json()</code>.<br> 10 fetches per script evaluation allowed.</p>",
     "parameter": {
       "fields": {
+        "Path Arguments": [
+          {
+            "group": "Path Arguments",
+            "optional": true,
+            "field": "version",
+            "defaultValue": "latest",
+            "description": "<p>The <a href=\"https://github.com/matmen/ImageScript/releases\">ImageScript version</a> to use</p>"
+          }
+        ],
         "Request Parameters": [
           {
             "group": "Request Parameters",
@@ -465,7 +485,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "controllers/image-manipulation/ImageScript.js",
     "groupTitle": "Image_Manipulation",
-    "name": "PostImagescript",
+    "name": "PostImagescriptVersion",
     "success": {
       "fields": {
         "Success 200": [
