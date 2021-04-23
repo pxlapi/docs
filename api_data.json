@@ -478,6 +478,17 @@
             "optional": true,
             "field": "inject",
             "description": "<p>The data to inject as global variables</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1000..20000"
+            ],
+            "optional": true,
+            "field": "timeout",
+            "defaultValue": "10000",
+            "description": "<p>Maximum run time in ms</p>"
           }
         ]
       }
