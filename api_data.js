@@ -458,6 +458,7 @@ define({ "api": [
         "Path Arguments": [
           {
             "group": "Path Arguments",
+            "type": "string",
             "optional": true,
             "field": "version",
             "defaultValue": "latest",
