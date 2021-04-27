@@ -330,6 +330,87 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/flash",
+    "title": "Flash",
+    "group": "Image_Manipulation",
+    "description": "<p>Creates a flashy GIF from the given image (inverts every other frame)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "allowedValues": [
+              "20..100"
+            ],
+            "optional": true,
+            "field": "delay",
+            "defaultValue": "40",
+            "description": "<p>The delay to apply between frames (when generating a GIF from a static image)</p>"
+          }
+        ],
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Flash.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostFlash",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authentication header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/glitch",
     "title": "Glitch",
     "group": "Image_Manipulation",
