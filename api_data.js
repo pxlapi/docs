@@ -1176,7 +1176,7 @@ define({ "api": [
             "optional": true,
             "field": "interval",
             "defaultValue": "1m",
-            "description": ""
+            "description": "<p>Timespan between candlesticks</p>"
           },
           {
             "group": "Request Parameters",
@@ -1187,7 +1187,7 @@ define({ "api": [
             "optional": true,
             "field": "limit",
             "defaultValue": "90",
-            "description": "<p>Custom ticks (lets you send in <a href=\"https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data\">binance API compatible</a> tick data)</p>"
+            "description": "<p>How many candlesticks to draw</p>"
           },
           {
             "group": "Request Parameters",
