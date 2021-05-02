@@ -1195,6 +1195,27 @@ define({ "api": [
             "optional": true,
             "field": "ticks",
             "description": "<p>Custom ticks (lets you send in <a href=\"https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data\">binance API compatible</a> tick data)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "object",
+            "optional": true,
+            "field": "pair",
+            "description": "<p>Custom pair data to display</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "pair.baseAsset",
+            "description": "<p>Custom base asset name to display</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "pair.quoteAsset",
+            "description": "<p>Custom quote asset name to display</p>"
           }
         ]
       }
