@@ -943,6 +943,7 @@ define({ "api": [
               "\"dog3\"",
               "\"pig\"",
               "\"flowers\"",
+              "\"clown\"",
               "\"random\""
             ],
             "optional": true,
