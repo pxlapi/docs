@@ -59,7 +59,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -145,7 +145,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -250,7 +250,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -377,7 +377,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -458,7 +458,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -577,7 +577,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -673,7 +673,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -752,7 +752,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -838,7 +838,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -932,7 +932,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1003,7 +1003,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1072,7 +1072,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1181,7 +1181,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1319,7 +1319,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1458,7 +1458,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1608,7 +1608,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           }
         ]
       }
@@ -1722,13 +1722,13 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           },
           {
             "group": "Error 4xx",
             "optional": false,
             "field": "403",
-            "description": "<p>The supplied authentication has no access to this resource</p>"
+            "description": "<p>The supplied authorization has no access to this resource</p>"
           },
           {
             "group": "Error 4xx",
@@ -1852,7 +1852,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "401",
-            "description": "<p>No valid Authentication header was supplied</p>"
+            "description": "<p>No valid Authorization header was supplied</p>"
           },
           {
             "group": "Error 4xx",
@@ -1864,7 +1864,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "403",
-            "description": "<p>The supplied authentication has no access to this resource</p>"
+            "description": "<p>The supplied authorization has no access to this resource</p>"
           }
         ]
       }
