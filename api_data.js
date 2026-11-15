@@ -6177,5 +6177,100 @@ define({ "api": [
         ]
       }
     }
+  },
+  {
+    "type": "get",
+    "url": "/management/users/:id/discord",
+    "title": "Show linked Discord account",
+    "group": "~Management",
+    "description": "<p>Gets the name of the Discord account linked to the given user. The name is cached for a few hours.</p>",
+    "parameter": {
+      "fields": {
+        "Path Arguments": [
+          {
+            "group": "Path Arguments",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The users ID (or &quot;@&quot; for the authenticated user)</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access token (&quot;Application APPLICATION_TOKEN&quot;)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The Discord account ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": "<p>The Discord username</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string|null",
+            "optional": false,
+            "field": "global_name",
+            "description": "<p>The display name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string|null",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>The avatar hash</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/management/user/DiscordUser.js",
+    "groupTitle": "~Management",
+    "name": "GetManagementUsersIdDiscord",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The given resource could not be found</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "403",
+            "description": "<p>The supplied authorization has no access to this resource</p>"
+          }
+        ]
+      }
+    }
   }
 ] });
