@@ -1784,7 +1784,8 @@
             "type": "string",
             "optional": true,
             "field": "background",
-            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), transparent by default</p>"
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
           },
           {
             "group": "Request Parameters",
@@ -2971,6 +2972,14 @@
             "field": "size",
             "defaultValue": "256",
             "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
           },
           {
             "group": "Request Parameters",
