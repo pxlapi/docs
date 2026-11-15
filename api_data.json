@@ -40,6 +40,16 @@
           },
           {
             "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
             "type": "string[]",
             "optional": false,
             "field": "images",
@@ -134,6 +144,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           },
           {
             "group": "Request Parameters",
@@ -254,6 +274,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           },
           {
             "group": "Request Parameters",
@@ -399,6 +429,16 @@
           },
           {
             "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
             "type": "string[]",
             "optional": false,
             "field": "images",
@@ -492,6 +532,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           },
           {
             "group": "Request Parameters",
@@ -629,6 +679,16 @@
           },
           {
             "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
             "type": "string[]",
             "optional": false,
             "field": "images",
@@ -744,6 +804,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           }
         ]
       }
@@ -935,6 +1005,16 @@
           },
           {
             "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
             "type": "string[]",
             "optional": false,
             "field": "images",
@@ -947,6 +1027,148 @@
     "filename": "controllers/image-manipulation/Lego.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostLego",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/pixelate",
+    "title": "Pixelate",
+    "group": "Image_Manipulation",
+    "description": "<p>Turns the given image into pixel art: big pixels in a small set of colours, either the image's own (picked to match how the colours look, not just their numbers) or a fixed palette like the Game Boy's</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "2..256"
+            ],
+            "optional": true,
+            "field": "size",
+            "description": "<p>Edge length of one pixel in the result, in source pixels. Defaults to a result about 64 pixels on its longer side</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "2..64"
+            ],
+            "optional": true,
+            "field": "colors",
+            "defaultValue": "16",
+            "description": "<p>How many colours to use (ignored when a palette is given)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string|string[]",
+            "optional": true,
+            "field": "palette",
+            "description": "<p>A preset (<code>gameboy</code>, <code>pico8</code>, <code>c64</code>, <code>cga</code>, <code>grayscale</code>, <code>mono</code>) or a list of up to 64 hex colours like <code>[&quot;#1d2b53&quot;, &quot;#ff004d&quot;]</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"none\"",
+              "\"ordered\"",
+              "\"floyd-steinberg\""
+            ],
+            "optional": true,
+            "field": "dither",
+            "defaultValue": "none",
+            "description": "<p>How to blend between colours for smoother gradients</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "scale",
+            "defaultValue": "true",
+            "description": "<p>Whether to scale the result back up to the size of the input (with sharp pixel edges)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Pixelate.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostPixelate",
     "success": {
       "fields": {
         "Success 200": [
@@ -1044,6 +1266,16 @@
           },
           {
             "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
             "type": "string[]",
             "optional": false,
             "field": "images",
@@ -1134,6 +1366,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           }
         ]
       }
@@ -1218,6 +1460,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           }
         ]
       }
@@ -1480,6 +1732,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           }
         ]
       }
@@ -1634,6 +1896,16 @@
             "optional": true,
             "field": "format",
             "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
           }
         ]
       }
