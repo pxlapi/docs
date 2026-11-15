@@ -653,6 +653,243 @@
   },
   {
     "type": "post",
+    "url": "/caption",
+    "title": "Caption",
+    "group": "Image_Manipulation",
+    "description": "<p>Adds a classic image macro caption: a line of text at the top and/or at the bottom. The <code>bar</code> style puts black text on a white band above and/or below the picture, so nothing is covered; the <code>impact</code> style sets white text with a black outline over the picture. Long texts are set smaller, to at most two lines. Texts that are too long (more than 200 characters) give <code>INVALID_TOP</code> or <code>INVALID_BOTTOM</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "0..200",
+            "optional": true,
+            "field": "top",
+            "description": "<p>The text at the top</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "0..200",
+            "optional": true,
+            "field": "bottom",
+            "description": "<p>The text at the bottom</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"impact\\\"",
+              "\\\"bar\\\""
+            ],
+            "optional": true,
+            "field": "style",
+            "defaultValue": "\\\"bar\\\"",
+            "description": "<p><code>bar</code> for white bands with black text, <code>impact</code> for white text with an outline over the picture</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Caption.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostCaption",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/deepfry",
+    "title": "Deepfry",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes the picture &quot;deep fried&quot;: the colours are oversaturated and pushed to a red, orange and yellow cast, the contrast is crushed and clipped, the picture is posterized, lens flares are screened on the brightest spots, coloured noise and sharpening are added, and the picture is shrunk, enlarged and re-encoded as a very low quality JPEG several times, which leaves blocky artefacts and ringing</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "amount",
+            "defaultValue": "50",
+            "description": "<p>How strongly to fry the picture: more saturation, more contrast, more flares, more grain, coarser blocks and more JPEG passes</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "allowedValues": [
+              "true",
+              "false"
+            ],
+            "optional": true,
+            "field": "lasers",
+            "defaultValue": "false",
+            "description": "<p>Adds glowing red laser eyes: each detected face gets a red glow and a beam at each pupil, running to the edge of the picture. Pictures without faces are returned as they would be without this parameter</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Deepfry.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostDeepfry",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/emojimosaic",
     "title": "Emoji Mosaic",
     "group": "Image_Manipulation",
@@ -717,6 +954,152 @@
     "filename": "controllers/image-manipulation/EmojiMosaic.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostEmojimosaic",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/explode",
+    "title": "Explode",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes an animated GIF of the image swelling out from its center (or from every face), popping and wobbling back, looping seamlessly</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "8..24"
+            ],
+            "optional": true,
+            "field": "frames",
+            "defaultValue": "14",
+            "description": "<p>Number of frames in one loop</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0.2..2"
+            ],
+            "optional": true,
+            "field": "strength",
+            "defaultValue": "1",
+            "description": "<p>How far the picture bulges</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"center\"",
+              "\"faces\""
+            ],
+            "optional": true,
+            "field": "target",
+            "defaultValue": "center",
+            "description": "<p>Whether to swell from the middle of the image or from every face in it (an image without faces gives <code>NO_FACES_DETECTED</code>)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Explode.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostExplode",
     "success": {
       "fields": {
         "Success 200": [
@@ -847,6 +1230,386 @@
     "filename": "controllers/image-manipulation/Eyes.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostEyesType",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/facemagik",
+    "title": "FaceMagik",
+    "group": "Image_Manipulation",
+    "description": "<p>Applies another effect only inside the faces: the head of every face is distorted with the chosen effect, and the change fades out softly at the edge of the head, so the rest of the picture stays as it is. An image without faces gives <code>NO_FACES_DETECTED</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"magik\\\"",
+              "\\\"pixelsort\\\"",
+              "\\\"pixelate\\\"",
+              "\\\"retro\\\"",
+              "\\\"glitch\\\""
+            ],
+            "optional": true,
+            "field": "effect",
+            "defaultValue": "\\\"pixelsort\\\"",
+            "description": "<p>The effect to apply inside the faces (<code>retro</code> gives the VHS look)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "padding",
+            "defaultValue": "0.3",
+            "description": "<p>How much of the surroundings of the face is included in the head, relative to the size of the face</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/FaceMagik.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostFacemagik",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/faceswap",
+    "title": "Face swap",
+    "group": "Image_Manipulation",
+    "description": "<p>Swaps the faces in the image. The faces are aligned by their eyes, nose and mouth, the new face is blended in through a soft face-shaped mask, and its colours are matched to the face it replaces. With one image the faces are swapped inside it (<code>mode</code> picks which ones). With two images the first one is the target and the largest face of the second one is put onto its faces (<code>which</code> picks which of them). An image without faces gives <code>NO_FACES_DETECTED</code>, a second image without a face gives <code>NO_SOURCE_FACE</code>, and a single image with fewer than two faces gives <code>NOT_ENOUGH_FACES</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"pair\\\"",
+              "\\\"rotate\\\"",
+              "\\\"largest\\\""
+            ],
+            "optional": true,
+            "field": "mode",
+            "defaultValue": "\\\"pair\\\"",
+            "description": "<p>With one image: <code>pair</code> swaps the two biggest faces with each other, <code>rotate</code> gives every face the face of the next one (the last gets the first), <code>largest</code> puts the biggest face onto all the others</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"all\\\"",
+              "\\\"largest\\\""
+            ],
+            "optional": true,
+            "field": "which",
+            "defaultValue": "\\\"all\\\"",
+            "description": "<p>With two images: put the face on every face of the first image, or only on its biggest face</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "strength",
+            "defaultValue": "1",
+            "description": "<p>How much of the new face shows (0 leaves the image as it is)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "colorMatch",
+            "defaultValue": "true",
+            "description": "<p>Whether to match the colours of the new face to the face it replaces, so skin tones and light fit</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Faceswap.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostFaceswap",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/facezoom",
+    "title": "FaceZoom",
+    "group": "Image_Manipulation",
+    "description": "<p>Zooms into every face in the image, like a magnifying lens centred on it: the middle of each face is magnified and the picture falls back to normal around it. The <code>lines</code> style adds anime-like speed lines around the faces. With <code>animated</code> the zoom pulses from normal size to the given zoom and back, as a looping GIF. An image without faces gives <code>NO_FACES_DETECTED</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1.2..4"
+            ],
+            "optional": true,
+            "field": "zoom",
+            "defaultValue": "2",
+            "description": "<p>How much the faces are magnified in the middle</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"zoom\\\"",
+              "\\\"lines\\\""
+            ],
+            "optional": true,
+            "field": "style",
+            "defaultValue": "\\\"zoom\\\"",
+            "description": "<p><code>lines</code> adds speed lines around the faces</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "animated",
+            "defaultValue": "false",
+            "description": "<p>Whether to return a looping GIF of the zoom pulsing in and out (its longer side is at most 512 pixels)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/FaceZoom.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostFacezoom",
     "success": {
       "fields": {
         "Success 200": [
@@ -1296,6 +2059,139 @@
   },
   {
     "type": "post",
+    "url": "/glow",
+    "title": "Glow",
+    "group": "Image_Manipulation",
+    "description": "<p>Adds a soft bloom: the bright parts of the picture spill light into their surroundings, the way a lens or a strong light does. Higher amounts also give a soft-focus, slightly brighter, dreamy look</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "amount",
+            "defaultValue": "0.5",
+            "description": "<p>How strong the glow is (0.5 is a clear glow, 1 is dreamy and overexposed)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "tint",
+            "description": "<p>Colour of the glow as hex (<code>#rgb</code> or <code>#rrggbb</code>); by default the glow keeps the colours of the picture</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "threshold",
+            "defaultValue": "0.7",
+            "description": "<p>How bright a part has to be to glow (0 makes everything glow, 1 nothing)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "2..60"
+            ],
+            "optional": true,
+            "field": "radius",
+            "defaultValue": "20",
+            "description": "<p>How far the glow spreads, in pixels for a picture whose longer side is 1024 (larger pictures spread it proportionally further)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Glow.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostGlow",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/imagescript/:version",
     "title": "ImageScript",
     "group": "Image_Manipulation",
@@ -1370,6 +2266,152 @@
     "filename": "controllers/image-manipulation/ImageScript.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostImagescriptVersion",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/implode",
+    "title": "Implode",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes an animated GIF of the image being pulled into its center (or into every face), springing back and wobbling, looping seamlessly</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "8..24"
+            ],
+            "optional": true,
+            "field": "frames",
+            "defaultValue": "14",
+            "description": "<p>Number of frames in one loop</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0.2..2"
+            ],
+            "optional": true,
+            "field": "strength",
+            "defaultValue": "0.8",
+            "description": "<p>How hard the picture is pulled in</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"center\"",
+              "\"faces\""
+            ],
+            "optional": true,
+            "field": "target",
+            "defaultValue": "center",
+            "description": "<p>Whether to pull into the middle of the image or into every face in it (an image without faces gives <code>NO_FACES_DETECTED</code>)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Implode.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostImplode",
     "success": {
       "fields": {
         "Success 200": [
@@ -1876,7 +2918,7 @@
     "url": "/pipeline",
     "title": "Pipeline",
     "group": "Image_Manipulation",
-    "description": "<p>Runs an image through several effects in one request, each step working on the result of the one before. A step is an object with the effect's name as <code>op</code> and that effect's parameters next to it, for example <code>{&quot;op&quot;: &quot;pixelate&quot;, &quot;palette&quot;: &quot;gameboy&quot;}</code>. Every effect of the Image Manipulation endpoints that takes one image and returns one is available as a step; effects that return an animation can only be the last step.</p> <p>Available as steps: <code>pixelate</code>, <code>pixelsort</code>, <code>retro</code>, <code>ascii</code>, <code>glitch</code>, <code>jpeg</code>, <code>emojimosaic</code>, <code>lego</code>, <code>magik</code>, <code>bulge</code>, <code>swirl</code>, <code>bighead</code>, <code>blurfaces</code>, <code>smartcrop</code>, <code>pat</code>, <code>shake</code> and <code>spin</code>.</p>",
+    "description": "<p>Runs an image through several effects in one request, each step working on the result of the one before. A step is an object with the effect's name as <code>op</code> and that effect's parameters next to it, for example <code>{&quot;op&quot;: &quot;pixelate&quot;, &quot;palette&quot;: &quot;gameboy&quot;}</code>. Every effect of the Image Manipulation endpoints that takes one image and returns one is available as a step; effects that return an animation can only be the last step.</p> <p>Available as steps: <code>pixelate</code>, <code>pixelsort</code>, <code>retro</code>, <code>ascii</code>, <code>glitch</code>, <code>jpeg</code>, <code>emojimosaic</code>, <code>lego</code>, <code>magik</code>, <code>bulge</code>, <code>swirl</code>, <code>bighead</code>, <code>blurfaces</code>, <code>smartcrop</code>, <code>facemagik</code>, <code>faceswap</code>, <code>facezoom</code>, <code>deepfry</code>, <code>glow</code>, <code>caption</code>, <code>speechbubble</code>, <code>removebg</code>, <code>quote</code>, <code>pat</code>, <code>zoomblur</code>, <code>shake</code>, <code>spin</code>, <code>rainbow</code>, <code>explode</code>, <code>implode</code>, <code>triggered</code> and <code>wave</code>.</p>",
     "parameter": {
       "fields": {
         "Request Parameters": [
@@ -2230,6 +3272,427 @@
     "filename": "controllers/image-manipulation/Pixelsort.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostPixelsort",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/quote",
+    "title": "Quote",
+    "group": "Image_Manipulation",
+    "description": "<p>Renders a chat message in the look of a modern dark (or light) chat app: the picture as the avatar in a circle, the name in bold with the time next to it, and the text word-wrapped below. The text can use <strong>bold</strong>, <code>code</code> and @mentions (highlighted like in chat apps); <em>italic</em> is shown as plain text. Line breaks in the text are kept. An optional reply adds a short line above the message. Characters the font doesn't have (such as CJK) are left out. A missing or empty text gives <code>INVALID_TEXT</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "1..500",
+            "optional": false,
+            "field": "text",
+            "description": "<p>The message text. Line breaks are kept</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "1..32",
+            "optional": true,
+            "field": "name",
+            "defaultValue": "pxlAPI",
+            "description": "<p>The display name, shown in bold</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "1..40",
+            "optional": true,
+            "field": "time",
+            "defaultValue": "Today at 12:00",
+            "description": "<p>The time stamp shown after the name</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "1..120",
+            "optional": true,
+            "field": "reply",
+            "description": "<p>A reply line shown above the message</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "color",
+            "defaultValue": "#ffffff",
+            "description": "<p>The colour of the name, as hex (<code>#rgb</code> or <code>#rrggbb</code>). The default is <code>#060607</code> on the light theme</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"dark\"",
+              "\"amoled\"",
+              "\"light\""
+            ],
+            "optional": true,
+            "field": "theme",
+            "defaultValue": "dark",
+            "description": "<p>The colour theme</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "integer",
+            "size": "320..1200",
+            "optional": true,
+            "field": "width",
+            "defaultValue": "720",
+            "description": "<p>The width of the image in pixels. The height follows the text</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "size": "1..3",
+            "optional": true,
+            "field": "scale",
+            "defaultValue": "2",
+            "description": "<p>The pixel ratio the text is set at, for crisp text</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Quote.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostQuote",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/rainbow",
+    "title": "Rainbow",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes an animated GIF in which a rainbow band sweeps across the image and its colors cycle, looping seamlessly</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "6..24"
+            ],
+            "optional": true,
+            "field": "frames",
+            "defaultValue": "12",
+            "description": "<p>Number of frames in one loop</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "opacity",
+            "defaultValue": "0.4",
+            "description": "<p>How strongly the rainbow shows over the picture</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Rainbow.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostRainbow",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/removebg",
+    "title": "Remove background",
+    "group": "Image_Manipulation",
+    "description": "<p>Cuts the subject out of the given image and makes the rest transparent. The subject is found on our own server, the image is not sent anywhere else. Use a format with transparency (<code>png</code> is the default, also <code>webp</code>, <code>avif</code> and <code>jxl</code>) or give a <code>background</code> color</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "transparent",
+            "description": "<p>Fill the background with this color (hex, <code>#rgb</code> or <code>#rrggbb</code>) instead of making it transparent</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"cutout\"",
+              "\"mask\""
+            ],
+            "optional": true,
+            "field": "output",
+            "defaultValue": "cutout",
+            "description": "<p>Return the cut-out image, or only the mask (white is the subject) to use it in your own compositing</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "crop",
+            "defaultValue": "false",
+            "description": "<p>Crop the result to the subject</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/RemoveBg.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostRemovebg",
     "success": {
       "fields": {
         "Success 200": [
@@ -2916,6 +4379,132 @@
   },
   {
     "type": "post",
+    "url": "/speechbubble",
+    "title": "SpeechBubble",
+    "group": "Image_Manipulation",
+    "description": "<p>Places a speech bubble with text over the picture, in its top or bottom part. The bubble is white with a black outline and a tail that points at the speaker; the text wraps and shrinks to fit. A missing or empty text gives <code>INVALID_TEXT</code></p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "size": "1..280",
+            "optional": false,
+            "field": "text",
+            "description": "<p>The text of the bubble</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"top\\\"",
+              "\\\"bottom\\\""
+            ],
+            "optional": true,
+            "field": "position",
+            "defaultValue": "\\\"top\\\"",
+            "description": "<p>Whether the bubble is in the top or the bottom part of the picture</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\\\"left\\\"",
+              "\\\"right\\\"",
+              "\\\"none\\\""
+            ],
+            "optional": true,
+            "field": "tail",
+            "defaultValue": "\\\"left\\\"",
+            "description": "<p>Which way the tail points (down for a bubble at the top, up for one at the bottom), or no tail at all</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/SpeechBubble.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostSpeechbubble",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/spin",
     "title": "Spin",
     "group": "Image_Manipulation",
@@ -3263,6 +4852,458 @@
     "filename": "controllers/image-manipulation/Thonkify.js",
     "groupTitle": "Image_Manipulation",
     "name": "PostThonkify",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/triggered",
+    "title": "Triggered",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes an animated GIF of the image shaking violently with a new random jolt on every frame, tinted red and flickering red, with a red banner at the bottom carrying the given text in big bold capitals; the banner jumps on its own. The picture is zoomed in, so the shaking never shows an edge. The shake is seeded, so the same request always gives the same GIF</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "text",
+            "defaultValue": "TRIGGERED",
+            "description": "<p>Text of the banner, from 1 to 24 characters (otherwise <code>INVALID_TEXT</code>)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "6..24"
+            ],
+            "optional": true,
+            "field": "frames",
+            "defaultValue": "12",
+            "description": "<p>Number of frames in one loop</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0.2..1"
+            ],
+            "optional": true,
+            "field": "intensity",
+            "defaultValue": "0.6",
+            "description": "<p>How violently the picture shakes</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Triggered.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostTriggered",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/wave",
+    "title": "Wave",
+    "group": "Image_Manipulation",
+    "description": "<p>Makes an animated GIF of the image rippling like a flag, looping seamlessly</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "8..24"
+            ],
+            "optional": true,
+            "field": "frames",
+            "defaultValue": "16",
+            "description": "<p>Number of frames in one loop</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0.5..10"
+            ],
+            "optional": true,
+            "field": "amplitude",
+            "defaultValue": "4",
+            "description": "<p>How far the picture ripples, in percent of the image size</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"horizontal\"",
+              "\"vertical\""
+            ],
+            "optional": true,
+            "field": "direction",
+            "defaultValue": "horizontal",
+            "description": "<p>Whether the rows ripple sideways or the columns ripple up and down</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the GIF in pixels</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Wave.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostWave",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "binary",
+            "optional": false,
+            "field": "null",
+            "description": "<p>The processed image data</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>The supplied data was invalid (see response text for more info)</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>No valid Authorization header was supplied</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Application access token (<code>Application APPLICATION_TOKEN</code>)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/zoomblur",
+    "title": "Zoomblur",
+    "group": "Image_Manipulation",
+    "description": "<p>Smears the image along the lines toward a center point, like a camera pulling toward the subject. A still image keeps its size; with <code>animated</code> it makes a looping GIF in which the blur swells and fades</p>",
+    "parameter": {
+      "fields": {
+        "Request Parameters": [
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0.05..0.6"
+            ],
+            "optional": true,
+            "field": "strength",
+            "defaultValue": "0.25",
+            "description": "<p>How far the blur reaches toward the center: 0.6 smears each pixel most of the way there</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "x",
+            "defaultValue": "0.5",
+            "description": "<p>Horizontal position of the center, from left to right</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "0..1"
+            ],
+            "optional": true,
+            "field": "y",
+            "defaultValue": "0.5",
+            "description": "<p>Vertical position of the center, from top to bottom</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "4..24"
+            ],
+            "optional": true,
+            "field": "samples",
+            "defaultValue": "12",
+            "description": "<p>How many points along each line are averaged; more is smoother but slower</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "boolean",
+            "optional": true,
+            "field": "animated",
+            "defaultValue": "false",
+            "description": "<p>Whether to make a looping GIF of the blur swelling and fading instead of a still image</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "64..512"
+            ],
+            "optional": true,
+            "field": "size",
+            "defaultValue": "320",
+            "description": "<p>Width and height of the animated GIF in pixels (a still image keeps its own size)</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "optional": true,
+            "field": "background",
+            "defaultValue": "#000000",
+            "description": "<p>Background color as hex (<code>#rgb</code> or <code>#rrggbb</code>), or <code>transparent</code>; only used when <code>animated</code> is set. Transparent GIFs leave traces of earlier frames in some viewers, so the default is opaque</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string",
+            "allowedValues": [
+              "\"png\"",
+              "\"jpeg\"",
+              "\"webp\"",
+              "\"avif\"",
+              "\"jxl\"",
+              "\"gif\""
+            ],
+            "optional": true,
+            "field": "format",
+            "description": "<p>The format to encode the result in. Defaults to <code>png</code> for still images and <code>gif</code> for animations. Animations can only be encoded as <code>gif</code>, <code>png</code> (APNG) or <code>webp</code></p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "number",
+            "allowedValues": [
+              "1..100"
+            ],
+            "optional": true,
+            "field": "quality",
+            "description": "<p>The quality for <code>jpeg</code>, <code>webp</code>, <code>avif</code> and <code>jxl</code> (still images). Setting it makes <code>webp</code> and <code>jxl</code> lossy, which often gives files a fraction of the size. Without it they are lossless</p>"
+          },
+          {
+            "group": "Request Parameters",
+            "type": "string[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>The image URL(s) to process</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "controllers/image-manipulation/Zoomblur.js",
+    "groupTitle": "Image_Manipulation",
+    "name": "PostZoomblur",
     "success": {
       "fields": {
         "Success 200": [
