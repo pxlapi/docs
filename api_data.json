@@ -1399,7 +1399,7 @@
     "url": "/faceswap",
     "title": "Face swap",
     "group": "Image_Manipulation",
-    "description": "<p>Swaps the faces in the image. The faces are aligned by their eyes, nose and mouth, the new face is blended in through a soft face-shaped mask, and its colours are matched to the face it replaces. With one image the faces are swapped inside it (<code>mode</code> picks which ones). With two images the first one is the target and the largest face of the second one is put onto its faces (<code>which</code> picks which of them). An image without faces gives <code>NO_FACES_DETECTED</code>, a second image without a face gives <code>NO_SOURCE_FACE</code>, and a single image with fewer than two faces gives <code>NOT_ENOUGH_FACES</code></p>",
+    "description": "<p>Swaps the faces in the image. The new face is warped onto the face it replaces point by point (a dense face mesh: outline, brows, eyes, nose and mouth), so it takes that face's shape, tilt and turn; it is blended in through a soft mask that follows the face's outline, and its light and colours are matched to the face it replaces. Faces the mesh does not fit (strongly turned ones, animals) are aligned by their eyes, nose and mouth alone. With one image the faces are swapped inside it (<code>mode</code> picks which ones). With two images the first one is the target and the largest face of the second one is put onto its faces (<code>which</code> picks which of them). An image without faces gives <code>NO_FACES_DETECTED</code>, a second image without a face gives <code>NO_SOURCE_FACE</code>, and a single image with fewer than two faces gives <code>NOT_ENOUGH_FACES</code></p>",
     "parameter": {
       "fields": {
         "Request Parameters": [
